@@ -75,6 +75,6 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
     public void test() {
-        System.out.println("test");
+        System.out.println("stinker");
     }
 }
