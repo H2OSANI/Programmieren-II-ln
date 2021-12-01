@@ -16,4 +16,6 @@
     <string name="parameter_currency">$</string>
     <string name="parameter_button_generate">Generate</string>
     <string name="parameter_input_money_min">min: 100</string>
+    <string name="parameter_input_year">Years to invest:</string>
+    <string name="parameter_year">year(s)</string>
 </resources>
