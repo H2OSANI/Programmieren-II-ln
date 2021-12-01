@@ -1,32 +1,25 @@
 package com.example.programmiereniiln;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import com.google.android.material.snackbar.Snackbar;
+import android.util.Log;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.View;
-
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import com.example.programmiereniiln.databinding.ActivityMainBinding;
-
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Toast;
-
 public class MainActivity extends AppCompatActivity {
 
-
+    private Button buttonStart;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        buttonStart = (Button)findViewById(R.id.button_start);
+        buttonStart.setOnClickListener(v -> launchParameterInput());
     }
 
-
+    public void launchParameterInput(){
+        Intent i = new Intent(this, ParameterInput.class);
+        startActivity(i);
+    }
 }

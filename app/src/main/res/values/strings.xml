@@ -9,4 +9,11 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="app_header_name">Portfolio Generator</string>
+    <string name="button_start">Start</string>
+    <string name="parameter_header_name">Portfolio Generator: Set up</string>
+    <string name="parameter_input_money">Amount to Invest:</string>
+    <string name="parameter_currency">$</string>
+    <string name="parameter_button_generate">Generate</string>
+    <string name="parameter_input_money_min">min: 100</string>
 </resources>
