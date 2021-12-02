@@ -12,7 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="35dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="8dp"
         android:max="40"
         android:min="1"
@@ -21,13 +21,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Amount_to_Invest" />
+        app:layout_constraintTop_toBottomOf="@+id/Years_to_invest" />
 
     <TextView
         android:id="@+id/ParameterYear"
         android:layout_width="76dp"
         android:layout_height="31dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
         android:text="@string/parameter_year"
         android:textColor="#000000"
         android:textSize="20sp"
@@ -39,15 +40,15 @@
         android:id="@+id/ParameterYearField"
         android:layout_width="67dp"
         android:layout_height="47dp"
-        android:layout_marginTop="148dp"
+        android:layout_marginTop="32dp"
         android:ems="10"
         android:inputType="number"
         android:textAlignment="textEnd"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.294"
-        app:layout_constraintStart_toEndOf="@+id/Amount_to_Invest"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintHorizontal_bias="0.386"
+        app:layout_constraintStart_toEndOf="@+id/Years_to_invest"
+        app:layout_constraintTop_toBottomOf="@+id/ParameterMoneyBar"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
@@ -63,6 +64,20 @@
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ParameterMoneyBar" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="162dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:digits="0123456789"
+        android:inputType="number|none"
+        android:text="@string/parameter_risk"
+        android:textColor="#020202"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ParameterYearBar" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -91,7 +106,7 @@
         android:layout_width="163dp"
         android:layout_height="48dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="48dp"
         android:digits="0123456789"
         android:inputType="number|none"
         android:text="@string/parameter_input_money"
@@ -119,7 +134,7 @@
         android:id="@+id/ParameterMoneyField"
         android:layout_width="133dp"
         android:layout_height="48dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="@string/parameter_input_money_min"
         android:inputType="number"
@@ -134,8 +149,8 @@
         android:id="@+id/ParameterCurrency"
         android:layout_width="13dp"
         android:layout_height="29dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
         android:text="@string/parameter_currency"
         android:textColor="#000000"
         android:textSize="20sp"
@@ -152,5 +167,60 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/rgroup"
+        android:layout_width="126dp"
+        android:layout_height="225dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.008"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+    <RadioButton
+        android:id="@+id/radioButton1"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/parameter_radiobutton_1"
+        app:layout_constraintStart_toStartOf="@+id/rgroup"
+        app:layout_constraintTop_toTopOf="@+id/rgroup" />
+
+
+    <RadioButton
+        android:id="@+id/radioButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/parameter_radiobutton_2"
+        app:layout_constraintStart_toStartOf="@+id/rgroup"
+        app:layout_constraintTop_toBottomOf="@+id/radioButton1" />
+
+    <RadioButton
+        android:id="@+id/radioButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/parameter_radiobutton_3"
+        app:layout_constraintStart_toStartOf="@+id/rgroup"
+        app:layout_constraintTop_toBottomOf="@+id/radioButton2" />
+
+    <RadioButton
+        android:id="@+id/radioButton4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/parameter_radiobutton_4"
+        app:layout_constraintStart_toStartOf="@+id/rgroup"
+        app:layout_constraintTop_toBottomOf="@+id/radioButton3" />
+    </RadioGroup>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

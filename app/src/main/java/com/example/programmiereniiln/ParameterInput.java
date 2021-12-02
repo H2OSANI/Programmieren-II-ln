@@ -6,9 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.SeekBar;
+import android.widget.Toast;
 
 public class ParameterInput extends AppCompatActivity {
     Button buttonGenerate;
@@ -16,6 +20,9 @@ public class ParameterInput extends AppCompatActivity {
     SeekBar seekBarMoney;
     EditText parameterYearField;
     SeekBar seekBarYear;
+    RadioGroup rg;
+
+
 
 
     @Override
@@ -29,7 +36,7 @@ public class ParameterInput extends AppCompatActivity {
         parameterYearField  = (EditText)    findViewById(R.id.ParameterYearField);
         seekBarYear         = (SeekBar)     findViewById(R.id.ParameterYearBar);
 
-
+        rg                  = (RadioGroup) findViewById(R.id.rgroup);
 
         buttonGenerate.setOnClickListener(v -> launchPortfolioOverview());
         buttonGenerate.setEnabled(false);
@@ -99,10 +106,22 @@ public class ParameterInput extends AppCompatActivity {
     }
 
     private void checkFields(){
+
         String s1;
         String s2;
         s1 = parameterMoney.getText().toString();
         s2 = parameterYearField.getText().toString();
+
+        /*
+        String value = ((RadioButton)findViewById(rg.getCheckedRadioButtonId())).getText().toString();
+
+        if(value.equals("")){
+            buttonGenerate.setEnabled(false);
+        } else {
+            buttonGenerate.setEnabled(true);
+        }
+        */
+
 
         if(!s1.equals("") && !s2.equals("")){
             if(Integer.parseInt(s1) >= 100 && Integer.parseInt(s2) > 1){
@@ -113,5 +132,6 @@ public class ParameterInput extends AppCompatActivity {
             buttonGenerate.setEnabled(false);
         }
     }
+
 
 }
