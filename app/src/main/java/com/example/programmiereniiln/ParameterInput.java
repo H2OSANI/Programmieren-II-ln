@@ -25,8 +25,6 @@ public class ParameterInput extends AppCompatActivity {
     RadioButton rb;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,8 +47,10 @@ public class ParameterInput extends AppCompatActivity {
     public void launchPortfolioOverview(){
         int rbid = rg.getCheckedRadioButtonId();
         rb = (RadioButton) findViewById(rbid);
-        Log.d("rbid", rb.getText().toString());
         Intent i = new Intent(this, PortfolioOverview.class);
+        i.putExtra("riskButton", rb.getText()); // Uebergabe von dem Radiobutton value
+        i.putExtra("moneyAmount", parameterMoney.getText().toString()); // Uebergabe von dem angegebenen Geld
+        i.putExtra("year", parameterYearField.getText().toString()); // Uebergabe von dem angegebenen Jahr
         startActivity(i);
     }
     private void onCreateYearBarListener(){
