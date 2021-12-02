@@ -6,9 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 
 public class PortfolioOverview extends AppCompatActivity {
-    //final private PortfolioMap map = new PortfolioMap(10000, 20, "smallCap");
     int money;
     String risk;
+    String marketCap;
     int year;
 
     @Override
@@ -21,8 +21,29 @@ public class PortfolioOverview extends AppCompatActivity {
         risk = i.getStringExtra("riskButton");
         year = Integer.parseInt(i.getStringExtra("year"));
 
+        marketCap = riskToMarketCap(risk);
 
-        //new Thread(() -> map.generateOutput()).start();
+        final PortfolioMap map = new PortfolioMap(money, year, marketCap);
 
+        new Thread(() -> map.generateOutput()).start();
+
+    }
+    private String riskToMarketCap(String _radioButtonSelected){
+        String sReturn ="";
+        switch(_radioButtonSelected){
+            case "Low Risk":
+                sReturn = "megaCap";
+                break;
+            case "Medium Risk":
+                sReturn = "largeCap";
+                break;
+            case "High Risk":
+                sReturn = "midCap";
+                break;
+            case "Critical Risk":
+                sReturn = "smallCap";
+                break;
+        }
+        return sReturn;
     }
 }

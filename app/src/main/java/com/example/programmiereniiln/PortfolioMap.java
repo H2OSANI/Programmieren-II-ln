@@ -10,10 +10,10 @@ import java.util.Random;
 public class PortfolioMap {
 
     //Stock Screener URL Mapping
-    private final String megaCap = "https://finviz.com/screener.ashx?v=111&f=cap_mega,fa_pe_u20&r=";
-    private final String largeCap = "https://finviz.com/screener.ashx?v=111&f=cap_large,fa_pe_u20&r=";
-    private final String midCap = "https://finviz.com/screener.ashx?v=111&f=cap_mid,fa_pe_u20&r=";
-    private final String smallCap = "https://finviz.com/screener.ashx?v=111&f=cap_small,fa_pe_u20&r=";
+    final String megaCap = "https://finviz.com/screener.ashx?v=111&f=cap_mega,fa_pe_u20&r=";
+    final String largeCap = "https://finviz.com/screener.ashx?v=111&f=cap_large,fa_pe_u20&r=";
+    final String midCap = "https://finviz.com/screener.ashx?v=111&f=cap_mid,fa_pe_u20&r=";
+    final String smallCap = "https://finviz.com/screener.ashx?v=111&f=cap_small,fa_pe_u20&r=";
 
     //Variable Declaration
     List<String>            stockList = new ArrayList<>();
@@ -66,12 +66,16 @@ public class PortfolioMap {
     //Sets Potential Outcome After Years
     private void setPotentialOutcome(){
         this.potentialOutcome = this.investmentAmount * Math.pow(1+this.interest/100, this.investmentYear);
+        //System.out.println(this.potentialOutcome);
     }
     //Picks Random Stocks from List
     private void setStockPick() {
         for (int i = 0; i < 15; i++) {
             int index = r.nextInt(this.stockList.size());
-            this.stockListPortfolio.add(this.stockList.get(index));
+            String s = this.stockList.get(index);
+            if (!stockListPortfolio.contains(s)){
+                this.stockListPortfolio.add(s);
+            }
         }
     }
     //Generates Output
@@ -80,6 +84,10 @@ public class PortfolioMap {
         setPotentialOutcome();
         scrapeFromFinviz();
         setStockPick();
+        for (String s: this.stockListPortfolio
+             ) {
+            System.out.println(s);
+        }
     }
     //Try connection to finviz.com
     //Scrape Stocks filtered P/E under 20 and Market Cap
