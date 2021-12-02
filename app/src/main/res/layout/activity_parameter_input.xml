@@ -179,9 +179,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
+
         <RadioButton
             android:id="@+id/radioButton1"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
@@ -191,36 +191,35 @@
             app:layout_constraintStart_toStartOf="@+id/rgroup"
             app:layout_constraintTop_toTopOf="@+id/rgroup" />
 
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/parameter_radiobutton_2"
+            app:layout_constraintStart_toStartOf="@+id/rgroup"
+            app:layout_constraintTop_toBottomOf="@+id/radioButton1" />
 
-    <RadioButton
-        android:id="@+id/radioButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/parameter_radiobutton_2"
-        app:layout_constraintStart_toStartOf="@+id/rgroup"
-        app:layout_constraintTop_toBottomOf="@+id/radioButton1" />
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/parameter_radiobutton_3"
+            app:layout_constraintStart_toStartOf="@+id/rgroup"
+            app:layout_constraintTop_toBottomOf="@+id/radioButton2" />
 
-    <RadioButton
-        android:id="@+id/radioButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/parameter_radiobutton_3"
-        app:layout_constraintStart_toStartOf="@+id/rgroup"
-        app:layout_constraintTop_toBottomOf="@+id/radioButton2" />
-
-    <RadioButton
-        android:id="@+id/radioButton4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/parameter_radiobutton_4"
-        app:layout_constraintStart_toStartOf="@+id/rgroup"
-        app:layout_constraintTop_toBottomOf="@+id/radioButton3" />
+        <RadioButton
+            android:id="@+id/radioButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/parameter_radiobutton_4"
+            app:layout_constraintStart_toStartOf="@+id/rgroup"
+            app:layout_constraintTop_toBottomOf="@+id/radioButton3" />
     </RadioGroup>
 
 

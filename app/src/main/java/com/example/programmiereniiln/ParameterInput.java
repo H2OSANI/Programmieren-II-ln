@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,6 +22,7 @@ public class ParameterInput extends AppCompatActivity {
     EditText parameterYearField;
     SeekBar seekBarYear;
     RadioGroup rg;
+    RadioButton rb;
 
 
 
@@ -45,8 +47,11 @@ public class ParameterInput extends AppCompatActivity {
         onCreateYearBarListener();
     }
     public void launchPortfolioOverview(){
-            Intent i = new Intent(this, PortfolioOverview.class);
-            startActivity(i);
+        int rbid = rg.getCheckedRadioButtonId();
+        rb = (RadioButton) findViewById(rbid);
+        Log.d("rbid", rb.getText().toString());
+        Intent i = new Intent(this, PortfolioOverview.class);
+        startActivity(i);
     }
     private void onCreateYearBarListener(){
         seekBarYear.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
