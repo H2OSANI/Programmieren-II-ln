@@ -30,12 +30,12 @@ public class ParameterInput extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parameter_input);
 
-        parameterMoney      = (EditText)    findViewById(R.id.ParameterMoneyField);
-        buttonGenerate      = (Button)      findViewById(R.id.parameter_button_generate);
-        seekBarMoney        = (SeekBar)     findViewById(R.id.ParameterMoneyBar);
-        parameterYearField  = (EditText)    findViewById(R.id.ParameterYearField);
-        seekBarYear         = (SeekBar)     findViewById(R.id.ParameterYearBar);
-        rg                  = (RadioGroup) findViewById(R.id.rgroup);
+        parameterMoney      = findViewById(R.id.ParameterMoneyField);
+        buttonGenerate      = findViewById(R.id.parameter_button_generate);
+        seekBarMoney        = findViewById(R.id.ParameterMoneyBar);
+        parameterYearField  = findViewById(R.id.ParameterYearField);
+        seekBarYear         = findViewById(R.id.ParameterYearBar);
+        rg                  = findViewById(R.id.rgroup);
 
         buttonGenerate.setOnClickListener(v -> launchPortfolioOverview());
         buttonGenerate.setEnabled(false);
@@ -90,7 +90,6 @@ public class ParameterInput extends AppCompatActivity {
         seekBarMoney.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                //TODO: WTF?
                 progress = progress /100;
                 progress = progress *100;
                 parameterMoney.setText(String.valueOf(progress));

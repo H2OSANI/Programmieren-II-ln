@@ -39,7 +39,7 @@
     <EditText
         android:id="@+id/ParameterYearField"
         android:layout_width="67dp"
-        android:layout_height="47dp"
+        android:layout_height="48dp"
         android:layout_marginTop="32dp"
         android:ems="10"
         android:inputType="number"
