@@ -35,7 +35,6 @@ public class ParameterInput extends AppCompatActivity {
         seekBarMoney        = (SeekBar)     findViewById(R.id.ParameterMoneyBar);
         parameterYearField  = (EditText)    findViewById(R.id.ParameterYearField);
         seekBarYear         = (SeekBar)     findViewById(R.id.ParameterYearBar);
-
         rg                  = (RadioGroup) findViewById(R.id.rgroup);
 
         buttonGenerate.setOnClickListener(v -> launchPortfolioOverview());
@@ -44,7 +43,6 @@ public class ParameterInput extends AppCompatActivity {
         onCreateMoneyListener();
         onCreateYearListener();
         onCreateYearBarListener();
-
     }
     public void launchPortfolioOverview(){
             Intent i = new Intent(this, PortfolioOverview.class);
@@ -106,22 +104,10 @@ public class ParameterInput extends AppCompatActivity {
     }
 
     private void checkFields(){
-
         String s1;
         String s2;
         s1 = parameterMoney.getText().toString();
         s2 = parameterYearField.getText().toString();
-
-        /*
-        String value = ((RadioButton)findViewById(rg.getCheckedRadioButtonId())).getText().toString();
-
-        if(value.equals("")){
-            buttonGenerate.setEnabled(false);
-        } else {
-            buttonGenerate.setEnabled(true);
-        }
-        */
-
 
         if(!s1.equals("") && !s2.equals("")){
             if(Integer.parseInt(s1) >= 100 && Integer.parseInt(s2) > 1){
@@ -132,6 +118,5 @@ public class ParameterInput extends AppCompatActivity {
             buttonGenerate.setEnabled(false);
         }
     }
-
 
 }
