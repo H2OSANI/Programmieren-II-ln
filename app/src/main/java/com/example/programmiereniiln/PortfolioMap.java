@@ -28,16 +28,16 @@ public class PortfolioMap extends Thread{
     int                     stockCount = 0;
     int                     counter = 1;
 
-    final private int       investmentAmount;
-    final private int       investmentYear;
-    final private String    marketCap;
+    private int       investmentAmount;
+    private int       investmentYear;
+    private String    marketCap;
 
     public double           potentialOutcome= 0;
     private double          interest = 0;
 
     private Random          r = new Random();
 
-    PortfolioMap(int _investmentAmount, int _investmentYear, String _marketCap){
+    public void setAttributes(int _investmentAmount, int _investmentYear, String _marketCap){
         this.investmentAmount   = _investmentAmount;
         this.investmentYear     = _investmentYear;
         this.marketCap          = _marketCap;
@@ -75,13 +75,23 @@ public class PortfolioMap extends Thread{
     }
     //Picks Random Stocks from List
     private void setStockPick() {
-        for (int i = 0; i < 15; i++) {
-            int index = r.nextInt(this.stockList.size());
-            String s = this.stockList.get(index);
-            if (!stockListPortfolio.contains(s)){
-                this.stockListPortfolio.add(s);
+        if (stockList.size() > 15){
+            for (int i = 0; i < 15; i++) {
+                int index = r.nextInt(this.stockList.size());
+                String s = this.stockList.get(index);
+                if (!stockListPortfolio.contains(s)){
+                    this.stockListPortfolio.add(s);
+                }
             }
         }
+        else{
+            stockListPortfolio.addAll(stockList);
+        }
+
+    }
+    public void setStockPickNew(){
+        this.stockListPortfolio.clear();
+        setStockPick();
     }
     //Generates Output
     public void generateOutput(){

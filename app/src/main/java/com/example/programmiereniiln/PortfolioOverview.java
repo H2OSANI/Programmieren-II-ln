@@ -1,8 +1,14 @@
 package com.example.programmiereniiln;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -15,9 +21,14 @@ public class PortfolioOverview extends AppCompatActivity{
     String risk;
     String marketCap;
     int year;
+
     ListView listView;
     List<String> stockList = new ArrayList<>();
+    ArrayAdapter<String> arrayAdapter;
+
     TextView outComeText;
+
+    public PortfolioMap map = new PortfolioMap();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,25 +39,43 @@ public class PortfolioOverview extends AppCompatActivity{
         money = Integer.parseInt(i.getStringExtra("moneyAmount")) ;
         risk = i.getStringExtra("riskButton");
         year = Integer.parseInt(i.getStringExtra("year"));
-
         marketCap = riskToMarketCap(risk);
-
+        map.setAttributes(money, year, marketCap);
         listView = findViewById(R.id.stock_list);
         outComeText = findViewById(R.id.outcome_list);
 
-        final PortfolioMap map = new PortfolioMap(money, year, marketCap);
         map.start();
         try {
             map.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
         stockList = map.stockListPortfolio;
-        outComeText.setText(new DecimalFormat("Estimated outcome: ###.##$").format(map.potentialOutcome));
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, stockList);
+        arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, stockList);
         listView.setAdapter(arrayAdapter);
+
+        outComeText.setText(new DecimalFormat("Estimated outcome: ###.##$").format(map.potentialOutcome));
+
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @SuppressLint("NonConstantResourceId")
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.generate_new_button) {
+            map.setStockPickNew();
+            stockList = map.stockListPortfolio;
+            arrayAdapter.notifyDataSetChanged();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private String riskToMarketCap(String _radioButtonSelected){
         String sReturn ="";
         switch(_radioButtonSelected){

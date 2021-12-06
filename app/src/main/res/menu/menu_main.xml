@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.programmiereniiln.MainActivity">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:id="@+id/generate_new_button"
+        android:icon="@drawable/generate_new"
+        android:iconTint="@color/gold"
+        android:title="Generate new portfolio"
+        app:showAsAction="ifRoom" />
 </menu>
