@@ -12,6 +12,8 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -72,6 +74,7 @@ public class PortfolioOverview extends AppCompatActivity{
             map.setStockPickNew();
             stockList = map.stockListPortfolio;
             arrayAdapter.notifyDataSetChanged();
+            Toast.makeText(PortfolioOverview.this, "New Portfolio generated!", Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
     }

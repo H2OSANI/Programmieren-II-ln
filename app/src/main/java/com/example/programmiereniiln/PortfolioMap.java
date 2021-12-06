@@ -10,7 +10,7 @@ import java.util.Random;
 public class PortfolioMap extends Thread{
 
     //Stock Screener URL Mapping
-    final String megaCap = "https://finviz.com/screener.ashx?v=111&f=cap_mega,fa_pe_u20&r=";
+    final String megaCap = "https://finviz.com/screener.ashx?v=111&f=cap_mega,fa_pe_u30&r=";
     final String largeCap = "https://finviz.com/screener.ashx?v=111&f=cap_large,fa_pe_u20&r=";
     final String midCap = "https://finviz.com/screener.ashx?v=111&f=cap_mid,fa_pe_u20&r=";
     final String smallCap = "https://finviz.com/screener.ashx?v=111&f=cap_small,fa_pe_u20&r=";
