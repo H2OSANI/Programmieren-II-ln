@@ -27,7 +27,6 @@ public class SliderAdp extends SliderViewAdapter<SliderAdp.Holder> {
 
     @Override
     public int getCount() {
-
         return images.length;
     }
 

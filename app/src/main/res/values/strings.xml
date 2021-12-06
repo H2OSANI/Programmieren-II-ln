@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Programmieren II ln</string>
+    <string name="app_name">Portfolio Generator</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -23,5 +23,6 @@
     <string name="parameter_radiobutton_2">Medium Risk</string>
     <string name="parameter_radiobutton_3">High Risk</string>
     <string name="parameter_radiobutton_4">Critical Risk</string>
-    <string name="loanding_screen">Genarating Portfolio …</string>
+    <string name="loading_screen">Generating Portfolio …</string>
+    <string name="portfolio_title">Stock list</string>
 </resources>

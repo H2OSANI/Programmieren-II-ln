@@ -23,5 +23,9 @@ class LoadingDialog {
         dialog = builder.create();
         dialog.show();
     }
-    void dismissDialog(){ dialog.dismiss(); }
+    void dismissDialog(){
+        if (dialog.isShowing()) {
+            dialog.dismiss();
+        }
+    }
 }

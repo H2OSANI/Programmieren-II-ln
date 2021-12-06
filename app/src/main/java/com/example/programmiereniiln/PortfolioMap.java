@@ -99,7 +99,7 @@ public class PortfolioMap extends Thread{
     //Parameter Market Cap: Mega, Large, Mid, Small
     private void scrapeFromFinviz() {
         try{
-            documentStockCount = Jsoup.connect(url).get();
+            documentStockCount = Jsoup.connect(url).timeout(5000).get();
             stockCountSelector = documentStockCount.select("td .count-text").first();
             stockCountManipulate = stockCountSelector.text();
             stockCountManipulate= stockCountManipulate.substring(stockCountManipulate.indexOf(":") + 2, stockCountManipulate.indexOf("#") - 1);

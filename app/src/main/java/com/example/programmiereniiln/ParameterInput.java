@@ -1,12 +1,10 @@
 package com.example.programmiereniiln;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -52,11 +50,13 @@ public class ParameterInput extends AppCompatActivity {
         loadingDialog.startLoadingDialog();
         startActivity(i);
     }
+
     @Override
-    protected void onStop() {
-        super.onStop();
+    protected void onRestart() {
+        super.onRestart();
         loadingDialog.dismissDialog();
     }
+
     private void onCreateYearBarListener(){
         seekBarYear.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override

@@ -3,9 +3,7 @@ package com.example.programmiereniiln;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -31,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         sliderView.startAutoCycle();
 
 
-        buttonStart = (Button)findViewById(R.id.button_start);
+        buttonStart = findViewById(R.id.button_start);
         buttonStart.setOnClickListener(v -> launchParameterInput());
     }
 
