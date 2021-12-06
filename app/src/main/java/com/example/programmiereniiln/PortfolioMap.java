@@ -82,6 +82,13 @@ public class PortfolioMap extends Thread{
                 if (!stockListPortfolio.contains(s)){
                     this.stockListPortfolio.add(s);
                 }
+                else
+                {
+                    i--;
+                }
+                if (stockListPortfolio.size() == 15){
+                    break;
+                }
             }
         }
         else{
