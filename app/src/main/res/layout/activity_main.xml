@@ -11,25 +11,32 @@
         android:id="@+id/button_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="156dp"
         android:text="@string/button_start"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
+
+
     <com.smarteist.autoimageslider.SliderView
         android:id="@+id/slider_view"
         android:layout_width="311dp"
         android:layout_height="442dp"
+        android:layout_marginTop="88dp"
         app:layout_constraintBottom_toTopOf="@+id/button_start"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:sliderAutoCycleDirection="back_and_forth"
         app:sliderIndicatorOrientation="horizontal"
         app:sliderIndicatorSelectedColor="@color/gold"
         app:sliderIndicatorUnselectedColor="@color/grey"
         app:sliderScrollTimeInSec="10"
-        app:sliderStartAutoCycle="true" />
+        app:sliderStartAutoCycle="true"
+
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

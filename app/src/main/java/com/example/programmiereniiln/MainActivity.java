@@ -12,7 +12,7 @@ import com.smarteist.autoimageslider.SliderView;
 public class MainActivity extends AppCompatActivity {
 
     SliderView sliderView;
-    int[] images = {R.drawable.one,R.drawable.tow,R.drawable.three,R.drawable.four};
+    int[] images = {R.drawable.one,R.drawable.two,R.drawable.three};
     SliderAdp sliderAdp;
     private Button buttonStart;
     @Override
