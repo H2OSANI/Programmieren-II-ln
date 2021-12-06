@@ -40,4 +40,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <com.smarteist.autoimageslider.SliderView
+        android:layout_width="311dp"
+        android:layout_height="442dp"
+        android:id="@+id/slider_view"
+        app:layout_constraintBottom_toTopOf="@+id/button_start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:sliderScrollTimeInSec="10"
+        app:sliderStartAutoCycle="true"
+        app:sliderAutoCycleDirection="back_and_forth"
+        app:sliderIndicatorSelectedColor="#546232"
+        app:sliderIndicatorUnselectedColor="#167178"
+        app:sliderIndicatorOrientation="horizontal"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
