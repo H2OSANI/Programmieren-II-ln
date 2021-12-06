@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class PortfolioMap {
+public class PortfolioMap extends Thread{
 
     //Stock Screener URL Mapping
     final String megaCap = "https://finviz.com/screener.ashx?v=111&f=cap_mega,fa_pe_u20&r=";
@@ -42,6 +42,11 @@ public class PortfolioMap {
         this.investmentYear     = _investmentYear;
         this.marketCap          = _marketCap;
     }
+    @Override
+    public void run() {
+        generateOutput();
+    }
+
     //Sets Parameters for Stock Portfolio Calculation
     private void setStockListParameter(){
         switch(this.marketCap){

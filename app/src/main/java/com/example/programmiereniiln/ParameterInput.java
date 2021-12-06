@@ -6,14 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
-import android.view.View;
+
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
-import android.widget.Toast;
 
 public class ParameterInput extends AppCompatActivity {
     Button buttonGenerate;
@@ -23,7 +21,7 @@ public class ParameterInput extends AppCompatActivity {
     SeekBar seekBarYear;
     RadioGroup rg;
     RadioButton rb;
-
+    final LoadingDialog loadingDialog = new LoadingDialog(ParameterInput.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +44,18 @@ public class ParameterInput extends AppCompatActivity {
     }
     public void launchPortfolioOverview(){
         int rbid = rg.getCheckedRadioButtonId();
-        rb = (RadioButton) findViewById(rbid);
+        rb = findViewById(rbid);
         Intent i = new Intent(this, PortfolioOverview.class);
         i.putExtra("riskButton", rb.getText()); // Uebergabe von dem Radiobutton value
         i.putExtra("moneyAmount", parameterMoney.getText().toString()); // Uebergabe von dem angegebenen Geld
         i.putExtra("year", parameterYearField.getText().toString()); // Uebergabe von dem angegebenen Jahr
+        loadingDialog.startLoadingDialog();
         startActivity(i);
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        loadingDialog.dismissDialog();
     }
     private void onCreateYearBarListener(){
         seekBarYear.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -106,7 +110,6 @@ public class ParameterInput extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) { }
         });
     }
-
     private void checkFields(){
         String s1;
         String s2;
@@ -122,5 +125,4 @@ public class ParameterInput extends AppCompatActivity {
             buttonGenerate.setEnabled(false);
         }
     }
-
 }

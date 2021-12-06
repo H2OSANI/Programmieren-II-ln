@@ -12,7 +12,9 @@
         <activity
             android:screenOrientation="portrait"
             android:name=".PortfolioOverview"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Stocklist"
+            android:parentActivityName=".ParameterInput"/>
         <activity
             android:screenOrientation="portrait"
             android:name=".ParameterInput"
