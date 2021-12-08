@@ -12,14 +12,12 @@ import android.widget.RadioGroup;
 import android.widget.SeekBar;
 
 public class ParameterInput extends AppCompatActivity {
-    Button buttonGenerate;
-    EditText parameterMoney;
-    SeekBar seekBarMoney;
-    EditText parameterYearField;
-    SeekBar seekBarYear;
-    RadioGroup rg;
-    RadioButton rb;
-    final LoadingDialog loadingDialog = new LoadingDialog(ParameterInput.this);
+    Button                  buttonGenerate;
+    EditText                parameterMoney, parameterYearField;
+    SeekBar                 seekBarMoney, seekBarYear;
+    RadioGroup              rg;
+    RadioButton             rb;
+    final LoadingDialog     loadingDialog = new LoadingDialog(ParameterInput.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

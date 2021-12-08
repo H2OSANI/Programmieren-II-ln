@@ -19,18 +19,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PortfolioOverview extends AppCompatActivity{
-    int money;
-    String risk;
-    String marketCap;
-    int year;
-
-    ListView listView;
-    List<String> stockList = new ArrayList<>();
-    ArrayAdapter<String> arrayAdapter;
-
-    TextView outComeText;
-
-    public PortfolioMap map = new PortfolioMap();
+    int                     money, year;
+    String                  risk, marketCap;
+    ListView                listView;
+    List<String>            stockList = new ArrayList<>();
+    ArrayAdapter<String>    arrayAdapter;
+    TextView                outComeText, resultPool;
+    public PortfolioMap     map = new PortfolioMap();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,13 +33,16 @@ public class PortfolioOverview extends AppCompatActivity{
         setContentView(R.layout.activity_portfolio_overview);
         Intent i = getIntent();
 
-        money = Integer.parseInt(i.getStringExtra("moneyAmount")) ;
-        risk = i.getStringExtra("riskButton");
-        year = Integer.parseInt(i.getStringExtra("year"));
-        marketCap = riskToMarketCap(risk);
+        money           = Integer.parseInt(i.getStringExtra("moneyAmount")) ;
+        risk            = i.getStringExtra("riskButton");
+        year            = Integer.parseInt(i.getStringExtra("year"));
+        marketCap       = riskToMarketCap(risk);
+
         map.setAttributes(money, year, marketCap);
-        listView = findViewById(R.id.stock_list);
-        outComeText = findViewById(R.id.outcome_list);
+
+        listView        = findViewById(R.id.stock_list);
+        outComeText     = findViewById(R.id.outcome_list);
+        resultPool      = findViewById(R.id.result_pool);
 
         map.start();
         try {
@@ -52,21 +50,20 @@ public class PortfolioOverview extends AppCompatActivity{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        stockList = map.stockListPortfolio;
-        arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, stockList);
+
+        stockList       = map.stockListPortfolio;
+        arrayAdapter    = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, stockList);
         listView.setAdapter(arrayAdapter);
 
         outComeText.setText(new DecimalFormat("Estimated outcome: ###.##$").format(map.potentialOutcome));
-
+        resultPool.setText("Result: 15 of " + map.stockList.size() + " possible");
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main, menu);
         return true;
     }
-
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -78,7 +75,6 @@ public class PortfolioOverview extends AppCompatActivity{
         }
         return super.onOptionsItemSelected(item);
     }
-
     private String riskToMarketCap(String _radioButtonSelected){
         String sReturn ="";
         switch(_radioButtonSelected){

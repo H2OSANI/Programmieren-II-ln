@@ -10,10 +10,10 @@ import java.util.Random;
 public class PortfolioMap extends Thread{
 
     //Stock Screener URL Mapping
-    final String megaCap = "https://finviz.com/screener.ashx?v=111&f=cap_mega,fa_pe_u30&r=";
-    final String largeCap = "https://finviz.com/screener.ashx?v=111&f=cap_large,fa_pe_u20&r=";
-    final String midCap = "https://finviz.com/screener.ashx?v=111&f=cap_mid,fa_pe_u20&r=";
-    final String smallCap = "https://finviz.com/screener.ashx?v=111&f=cap_small,fa_pe_u20&r=";
+    final String            megaCap = "https://finviz.com/screener.ashx?v=111&f=cap_mega,fa_pe_u30&r=";
+    final String            largeCap = "https://finviz.com/screener.ashx?v=111&f=cap_large,fa_pe_u20&r=";
+    final String            midCap = "https://finviz.com/screener.ashx?v=111&f=cap_mid,fa_pe_u20&r=";
+    final String            smallCap = "https://finviz.com/screener.ashx?v=111&f=cap_small,fa_pe_u20&r=";
 
     //Variable Declaration
     List<String>            stockList = new ArrayList<>();
@@ -28,14 +28,14 @@ public class PortfolioMap extends Thread{
     int                     stockCount = 0;
     int                     counter = 1;
 
-    private int       investmentAmount;
-    private int       investmentYear;
-    private String    marketCap;
+    private int             investmentAmount;
+    private int             investmentYear;
+    private String          marketCap;
 
     public double           potentialOutcome= 0;
     private double          interest = 0;
 
-    private Random          r = new Random();
+    private final Random    r = new Random();
 
     public void setAttributes(int _investmentAmount, int _investmentYear, String _marketCap){
         this.investmentAmount   = _investmentAmount;
@@ -71,7 +71,6 @@ public class PortfolioMap extends Thread{
     //Sets Potential Outcome After Years
     private void setPotentialOutcome(){
         this.potentialOutcome = this.investmentAmount * Math.pow(1+this.interest/100, this.investmentYear);
-        //System.out.println(this.potentialOutcome);
     }
     //Picks Random Stocks from List
     private void setStockPick() {
@@ -96,6 +95,7 @@ public class PortfolioMap extends Thread{
         }
 
     }
+    //Generates new Output
     public void setStockPickNew(){
         this.stockListPortfolio.clear();
         setStockPick();

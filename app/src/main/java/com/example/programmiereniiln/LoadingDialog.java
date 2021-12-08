@@ -6,8 +6,8 @@ import android.view.LayoutInflater;
 
 class LoadingDialog {
 
-    private Activity activity;
-    private AlertDialog dialog;
+    private final Activity  activity;
+    private AlertDialog     dialog;
 
     LoadingDialog(Activity _activity){
         activity = _activity;

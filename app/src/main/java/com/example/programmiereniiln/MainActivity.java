@@ -13,13 +13,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     //Initialize variable
-    SliderView sliderView;
+    SliderView  sliderView;
     //Images from drawable die geladen werden
-    int[] images = {R.drawable.one,R.drawable.two,R.drawable.three};
-
+    int[]       images = {R.drawable.one,R.drawable.two,R.drawable.three};
     //Class sliderAdp - adapter for sliding images
-    SliderAdp sliderAdp;
-
+    SliderAdp   sliderAdp;
 
     private Button buttonStart;
     @Override
@@ -29,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
 
         //Assign variable
         sliderView = findViewById(R.id.slider_view);
-
         //Initialize adapter
         sliderAdp = new SliderAdp(images);
         //set adapter
@@ -41,11 +38,9 @@ public class MainActivity extends AppCompatActivity {
         //start auto cycle
         sliderView.startAutoCycle();
 
-
         buttonStart = findViewById(R.id.button_start);
         buttonStart.setOnClickListener(v -> launchParameterInput());
     }
-
     public void launchParameterInput(){
         Intent i = new Intent(this, ParameterInput.class);
         startActivity(i);
