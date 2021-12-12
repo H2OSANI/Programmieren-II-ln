@@ -36,14 +36,16 @@ public class PortfolioMap extends Thread{
     private double          interest = 0;
 
     private final Random    r = new Random();
-
+    //Init Attributes for Output generation
     public void setAttributes(int _investmentAmount, int _investmentYear, String _marketCap){
         this.investmentAmount   = _investmentAmount;
         this.investmentYear     = _investmentYear;
         this.marketCap          = _marketCap;
     }
+    //Generate Output in Thread
     @Override
     public void run() {
+
         generateOutput();
     }
 
@@ -116,12 +118,15 @@ public class PortfolioMap extends Thread{
     //Parameter Market Cap: Mega, Large, Mid, Small
     private void scrapeFromFinviz() {
         try{
+            //Connect to Finviz.com
             documentStockCount = Jsoup.connect(url).timeout(5000).get();
+            //Select total stock count in Screener
+            //Format stockCount
             stockCountSelector = documentStockCount.select("td .count-text").first();
             stockCountManipulate = stockCountSelector.text();
             stockCountManipulate= stockCountManipulate.substring(stockCountManipulate.indexOf(":") + 2, stockCountManipulate.indexOf("#") - 1);
             stockCount = Integer.parseInt(stockCountManipulate);
-
+            //Loop through list
             while (counter <= stockCount) {
                 urlChanged = url + counter;
                 documentStock = Jsoup.connect(urlChanged).get();

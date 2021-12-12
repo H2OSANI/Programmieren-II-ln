@@ -2,17 +2,20 @@ package com.example.programmiereniiln;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.view.LayoutInflater;
 
-class LoadingDialog {
-
+class LoadingDialog{
+    //Variable declaration
     private final Activity  activity;
     private AlertDialog     dialog;
-
+    //Constructor initializes activity
     LoadingDialog(Activity _activity){
         activity = _activity;
     }
-
+    //Create Dialog Object
+    //Get Layout XML by inflater
+    //Start showing Dialog
     void startLoadingDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 
@@ -23,6 +26,7 @@ class LoadingDialog {
         dialog = builder.create();
         dialog.show();
     }
+    //Stops Dialog when called
     void dismissDialog(){
         if (dialog.isShowing()) {
             dialog.dismiss();

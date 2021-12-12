@@ -12,6 +12,7 @@ import android.widget.RadioGroup;
 import android.widget.SeekBar;
 
 public class ParameterInput extends AppCompatActivity {
+    //Variable delcaration
     Button                  buttonGenerate;
     EditText                parameterMoney, parameterYearField;
     SeekBar                 seekBarMoney, seekBarYear;
@@ -23,14 +24,13 @@ public class ParameterInput extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parameter_input);
-
+        //Select objects
         parameterMoney      = findViewById(R.id.ParameterMoneyField);
         buttonGenerate      = findViewById(R.id.parameter_button_generate);
         seekBarMoney        = findViewById(R.id.ParameterMoneyBar);
         parameterYearField  = findViewById(R.id.ParameterYearField);
         seekBarYear         = findViewById(R.id.ParameterYearBar);
         rg                  = findViewById(R.id.rgroup);
-
         buttonGenerate.setOnClickListener(v -> launchPortfolioOverview());
         buttonGenerate.setEnabled(false);
         onCreateSeekBarListener();
@@ -38,6 +38,7 @@ public class ParameterInput extends AppCompatActivity {
         onCreateYearListener();
         onCreateYearBarListener();
     }
+    //Set Intent extras and launch next activity
     public void launchPortfolioOverview(){
         int rbid = rg.getCheckedRadioButtonId();
         rb = findViewById(rbid);
@@ -48,13 +49,13 @@ public class ParameterInput extends AppCompatActivity {
         loadingDialog.startLoadingDialog();
         startActivity(i);
     }
-
+    //TODO: Callback on Dialog
     @Override
     protected void onRestart() {
         super.onRestart();
-        loadingDialog.dismissDialog();
+       loadingDialog.dismissDialog();
     }
-
+    //Sets value in field when progress Bar moves
     private void onCreateYearBarListener(){
         seekBarYear.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -67,6 +68,7 @@ public class ParameterInput extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) { }
         });
     }
+    //Validate Year value if changed
     private void onCreateYearListener(){
         parameterYearField.addTextChangedListener(new TextWatcher() {
             @Override
@@ -79,8 +81,8 @@ public class ParameterInput extends AppCompatActivity {
             public void afterTextChanged(Editable s) {}
         });
     }
+    //Validate Money value if changed
     private void onCreateMoneyListener(){
-
         parameterMoney.addTextChangedListener(new TextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -92,6 +94,7 @@ public class ParameterInput extends AppCompatActivity {
             public void afterTextChanged(Editable s) { }
         });
     }
+    //Sets value in money field when progress Bar moves
     private void onCreateSeekBarListener(){
         seekBarMoney.incrementProgressBy(100);
         seekBarMoney.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -108,6 +111,7 @@ public class ParameterInput extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) { }
         });
     }
+    //Method to check fields in onCreateMoneyListener() and onCreateYearListener()
     private void checkFields(){
         String s1;
         String s2;

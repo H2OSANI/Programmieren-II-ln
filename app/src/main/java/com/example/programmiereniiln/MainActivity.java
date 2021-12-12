@@ -11,7 +11,6 @@ import com.smarteist.autoimageslider.SliderView;
 
 public class MainActivity extends AppCompatActivity {
 
-
     //Initialize variable
     SliderView  sliderView;
     //Images from drawable die geladen werden
@@ -24,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         //Assign variable
         sliderView = findViewById(R.id.slider_view);
         //Initialize adapter
@@ -32,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         //set adapter
         sliderView.setSliderAdapter(sliderAdp);
         //set indicator animation
-        sliderView.setIndicatorAnimation(IndicatorAnimationType.WORM);
+        sliderView.setIndicatorAnimation(IndicatorAnimationType.DROP);
         //set transformation animation
         sliderView.setSliderTransformAnimation(SliderAnimations.DEPTHTRANSFORMATION);
         //start auto cycle
