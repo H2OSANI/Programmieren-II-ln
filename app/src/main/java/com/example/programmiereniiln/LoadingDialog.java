@@ -2,10 +2,10 @@ package com.example.programmiereniiln;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.view.LayoutInflater;
 
-class LoadingDialog{
+
+class LoadingDialog {
     //Variable declaration
     private final Activity  activity;
     private AlertDialog     dialog;

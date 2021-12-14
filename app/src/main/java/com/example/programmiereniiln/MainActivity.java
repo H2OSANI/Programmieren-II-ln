@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         //set adapter
         sliderView.setSliderAdapter(sliderAdp);
         //set indicator animation
-        sliderView.setIndicatorAnimation(IndicatorAnimationType.DROP);
+        sliderView.setIndicatorAnimation(IndicatorAnimationType.THIN_WORM);
         //set transformation animation
         sliderView.setSliderTransformAnimation(SliderAnimations.DEPTHTRANSFORMATION);
         //start auto cycle

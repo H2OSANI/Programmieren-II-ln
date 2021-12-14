@@ -45,7 +45,6 @@ public class PortfolioMap extends Thread{
     //Generate Output in Thread
     @Override
     public void run() {
-
         generateOutput();
     }
 
@@ -108,10 +107,6 @@ public class PortfolioMap extends Thread{
         setPotentialOutcome();
         scrapeFromFinviz();
         setStockPick();
-        for (String s: this.stockListPortfolio
-             ) {
-            System.out.println(s);
-        }
     }
     //Try connection to finviz.com
     //Scrape Stocks filtered P/E under 20 and Market Cap

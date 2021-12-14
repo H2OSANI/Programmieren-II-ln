@@ -18,7 +18,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PortfolioOverview extends AppCompatActivity{
+public class PortfolioOverview extends AppCompatActivity {
     //Variable Declaration
     int                     money, year;
     String                  risk, marketCap;
@@ -28,13 +28,11 @@ public class PortfolioOverview extends AppCompatActivity{
     TextView                outComeText, resultPool;
     public PortfolioMap     map = new PortfolioMap();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_portfolio_overview);
         Intent i = getIntent();
-
         //Get args from previous activity
         money           = Integer.parseInt(i.getStringExtra("moneyAmount")) ;
         risk            = i.getStringExtra("riskButton");
@@ -53,7 +51,6 @@ public class PortfolioOverview extends AppCompatActivity{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
         //Set outcome list values and init adapter
         stockList       = map.stockListPortfolio;
         arrayAdapter    = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, stockList);

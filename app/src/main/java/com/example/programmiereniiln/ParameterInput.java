@@ -11,6 +11,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 
+
 public class ParameterInput extends AppCompatActivity {
     //Variable delcaration
     Button                  buttonGenerate;
@@ -49,7 +50,6 @@ public class ParameterInput extends AppCompatActivity {
         loadingDialog.startLoadingDialog();
         startActivity(i);
     }
-    //TODO: Callback on Dialog
     @Override
     protected void onRestart() {
         super.onRestart();
